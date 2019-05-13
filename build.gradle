@@ -15,11 +15,13 @@ plugins {
 }
 
 def vJavaLang = '1.8'
-def javaProjects = [ project(':sagan-site'), project(':sagan-indexer'), project(':sagan-common') ]
+//
+// def javaProjects = [ project(':sagan-site'), project(':sagan-indexer'), project(':sagan-common') ]
+def javaProjects = [ project(':sagan-site'), project(':sagan-common') ]
 def bootProjects = javaProjects - project(':sagan-common')
 def gradleDir = "${rootProject.rootDir}/gradle"
 
-wrapper.gradleVersion = '4.1'
+wrapper.gradleVersion = '6.0'
 
 configure(allprojects) {
     apply plugin: 'eclipse'
@@ -82,7 +84,7 @@ configure(javaProjects) {
 
 configure(bootProjects) {
     apply plugin: 'org.springframework.boot'
-    apply from: "$gradleDir/integTest.gradle"
+    //apply from: "$gradleDir/integTest.gradle"
 
     springBoot.backupSource = false
 }

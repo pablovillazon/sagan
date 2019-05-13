@@ -11,7 +11,7 @@ springBoot {
 asciidoctor {
     attributes \
       'snippets': file('build/snippets')
-	dependsOn integTest
+	//dependsOn integTest
 }
 
 jar {
@@ -52,6 +52,7 @@ dependencies {
     compile 'org.xmlbeam:xmlprojector:1.4.8'
 
     // for use in mocking http interactions
+
     testCompile "org.springframework.restdocs:spring-restdocs-mockmvc"
     testCompile "org.springframework.cloud:spring-cloud-contract-wiremock"
     testCompile "org.springframework.boot:spring-boot-starter-test"
@@ -74,7 +75,7 @@ task stubsJar(type: Jar) {
     }
 }
 
-stubsJar.dependsOn(test)
+//stubsJar.dependsOn(test)
 
 artifacts {
     archives stubsJar
